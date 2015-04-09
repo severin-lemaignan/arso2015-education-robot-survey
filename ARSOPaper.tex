@@ -6,6 +6,7 @@
 
 \usepackage[table]{xcolor}
 \usepackage{float}
+\usepackage{booktabs}
 
 % References
 \usepackage{natbib}
@@ -66,33 +67,31 @@ critiquing the literature and discusses possible future research direction.
 % Quick summary of the topics covered in mathematics and physics.
 \begin{table}[h]
 \centering
-\begin{tabular}{ll}
-\hline
-\multicolumn{1}{|c|}{Mathematics}                                                                                        
-                                                                                                                         
-                                                                                                                         
-                                                                                & \multicolumn{1}{c|}{Physics}           
-                                                                                                                         
-                                                                                           \\ \hline
-\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Geometric primitives~\cite{papert1980mindstorms, walker2012user}\\ 
-Counting~\cite{sullivan2013wheels}\\ Multiplication~\cite{wei2011joyful}\\ Decimals~\cite{portsmore2004bringing}\\ 
-Fractions and ratio~\cite{norton2004using, barker2007robotics, nugent2010impact}\\ Coordinate system 
-\cite{nugent2010impact, walker2012user}\\ Recognition of quantities~\cite{iturrizaga2000study}\\ Problem with operators 
-\cite{iturrizaga2000study}\\ Graph construction and \\ interpretation~\cite{mitnik2008autonomous, alimisisrobotics}\\ 
-Angles~\cite{mitnik2008autonomous, utgaard2014investigating}\end{tabular}} & 
-\multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Distance, time velocity~\cite{mitnik2008autonomous, 
-mikropoulos2013educational}\\ Constant speed, acceleration \\and deceleration\cite{alimisisrobotics}\\ Work and energy 
-\cite{saygin2012design}\\ Force, gravity, and friction~\cite{williams2007acquisition} \\ Doppler effect 
-\cite{ashdown2012robotics} \\ Fundamentals of electricity~\cite{tims2011work} \\ Weight Scale and Moment \\ Computation 
-\cite{Thymioweb} \end{tabular}} \\ \hline
-                                                                                                                         
-                                                                                                                         
-                                                                                                                         
-                                                                                &                                        
-                                                                                                                         
-                                                                                          
-\end{tabular}
 \caption{Quick summary of the topics covered in educational robotics featuring mathematics and physics.}
+\begin{tabular}{p{3.6cm}p{3.6cm}}
+\toprule
+\textbf{Mathematics} & \textbf{Physics} \\
+\midrule
+Geometric primitives~\cite{papert1980mindstorms, walker2012user}\newline
+Counting~\cite{sullivan2013wheels}\newline
+Multiplication~\cite{wei2011joyful}\newline
+Decimals~\cite{portsmore2004bringing}\newline
+Fractions and ratio~\cite{norton2004using, barker2007robotics, nugent2010impact}\newline
+Coordinate system \cite{nugent2010impact, walker2012user}\newline
+Recognition of quantities~\cite{iturrizaga2000study}\newline
+Problem with operators \cite{iturrizaga2000study}\newline
+Graph construction and interpretation~\cite{mitnik2008autonomous, alimisisrobotics}\newline
+Angles~\cite{mitnik2008autonomous, utgaard2014investigating}
+&
+Distance, time velocity~\cite{mitnik2008autonomous, mikropoulos2013educational}\newline
+Constant speed, acceleration and deceleration\cite{alimisisrobotics}\newline
+Work and energy \cite{saygin2012design}\newline
+Force, gravity, and friction~\cite{williams2007acquisition} \newline
+Doppler effect \cite{ashdown2012robotics} \newline
+Fundamentals of electricity~\cite{tims2011work} \newline
+Weight Scale and Moment Computation \cite{Thymioweb}\\
+\bottomrule
+\end{tabular}
 \label{compactEDU}
 \end{table}
 
