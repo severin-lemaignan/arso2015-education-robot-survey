@@ -1,0 +1,1564 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsfonts}
+
+\usepackage[table]{xcolor}
+\usepackage{float}
+
+% References
+\usepackage{natbib}
+\bibliographystyle{plain}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+\title{A Survey: Can Robots revolutionize K-12 education?}
+\author{\IEEEauthorblockN{Mohammad Ehsanul Karim, and Francesco Mondada}
+\IEEEauthorblockA{EDPR Manufacturing Systems and Robotics\\
+\'{E}cole Polytechnique F\'{e}d\'{e}ral de Lausanne, EPFL\\
+Email: \{ehsan.karim, francesco.mondada\}@epfl.ch}}
+  
+% make the title area
+\maketitle
+
+\begin{abstract}
+Can robots in classroom revolutionize education, and foster learning? To answer the question, we systematically 
+reviewed existing literature on robot based learning activities featuring mathematics and physics, as opposed to 
+conventional robot technology. Moreover we have listed robots (both commercial and open-source) usable in education 
+and documented design specifications. Furthermore, we surveyed the literature for similar educational activities 
+using augmented reality. Our survey suggests that the application of robots in classroom has positively shifted from 
+technology education to pedagogy; however the evaluation techniques and technology based pedagogical curricula is 
+not properly standardized; most importantly, the focus on the research and development of teacher training schemes is 
+significantly missing. Based on such we prosed a futuristic educational robotic system merging robots and augmented 
+reality. 
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+\section{Introduction}
+Robots are considered to be the next effective and potential add-on to traditional education. The tangibility of robots 
+and the excitement that it brings into the classroom environment is considered conducive for learning. Such claims from 
+anecdotal studies have inspired a lot of schools to adopt robotics into their formal or informal, i.e., in-classroom or 
+extra-curricular activities respectively. However, the actual contribution of robots in K-12 education is still not 
+obvious; and the fundamental question remains unanswered: Can robots in classroom revolutionize education, and foster 
+learning? In order to answer the question we surveyed the existing literature to seek satisfactory evidence of learning 
+using robots. 
+
+Robot-based undergraduate and graduate level education is well-established; thus our literature review would focus on 
+the robot-based learning activities developed for teaching mathematics and physics related topics in K-12 education.
+
+The remainder of this section summarizes the organization of the paper. Section II provides an updated definition of 
+educational robot, and summarizes robot based educational activities featuring mathematics and physics. Section III 
+summarizes potential robotic platforms that are capable of being used in education and describe the system in terms 
+of processor, autonomy hours, sensors, cost and robot design and construction process. Section IV quickly reviews 
+augmented reality based similar pedagogical activities. Finally, section V concludes the paper by constructively 
+critiquing the literature and discusses possible future research direction.
+\section{Robot based learning activities: A Survey}
+The term educational robotics is quite vague; the traditional definition predominantly involves developing technical 
+knowledge by constructing and programming the robot and its associated behaviors \cite{hsiu2003designing, 
+barker2007robotics, balch2008designing}. The definition is in-line with modern pedagogical theory of learning: (1) 
+Papert's constructionism theory \cite{papert1980mindstorms, ackermann2001piaget}, (2) learning by design 
+\cite{goldman2004using}, (3) principles of active learning \cite{harmin2006inspiring} and (4) social constructivism 
+\cite{vygotsky1980mind}. This definition focusing on the interactive learning activity is widely accepted, however 
+embarrassingly narrow. Recent trend suggests that the learning domains have broadened, so the definition requires an 
+update. Now-a-days, robots are being used to teach non-technical modules (mathematics \cite{highfield2008early, 
+robotmath}, physics \cite{mitnik2008autonomous}, geometry \cite{mitnik2008autonomous, robotmath}), language 
+\cite{kanda2004interactive, han2009r}, music \cite{han2009physical}. Moreover, robots are socially assisting in the 
+cognitive and intellectual development of children, as well \cite{mataric1999socially}. The role of the robots in such 
+activities is primarily a tool for learning, however, collaborative human-robot interactive learning, and robot-based 
+mentoring has also been demonstrated \cite{mitnik2008autonomous}.
+
+Robot-based mathematical learning of geometric primitives using the TURTLE/LOGO platform was first introduced in the 
+early 80s by Papert under the pedagogical framework of Constructionism \cite{papert1980mindstorms}. Papert envisioned 
+that student-robot interaction would improve mathematical knowledge and problem solving skills because the introduction 
+of robots in classroom would increase motivation and provide an experimental platform for practice 
+\cite{portsmore2004bringing, ruiz2004robotics, robinson2005robotics}. However, till-date not much significant 
+achievements have been made in this regard. Four decades later, Papert's results were reproduced using the 
+iRobot Create in drawing two dimensional geometric primitives and advanced complex shapes; the study reported that 
+students' sense of coordinate system was improved as a by product \cite{walker2012user}. Few studies with 
+middle schools (age: 11-15) \cite{nugent2008effect, nugent2009use} have reported that robots can significantly help 
+in improving skills with fractions, ratios and coordinate estimation; further studies emphasizes the importance of 
+the involvement duration: longer robotic intervention effects content learning, while the short version mostly 
+effects motivation and attitude \cite{nugent2010impact}. These findings are supported by previous similar studies which 
+have successfully demonstrated the learning of decimals \cite{portsmore2004bringing} and ratios \cite{norton2004using, 
+barker2007robotics}. A large scale study with 2nd, 3rd and 4th graders in Peru showed improvements in skills with 
+recognition of quantities, problem and operation solving; and emphasized on the gender unbiased learning 
+\cite{iturrizaga2000study}. However, recently, two major studies \cite{hussain2006effect, lindh2007does} each involving 
+one year of LEGO formal classroom training showed that only a certain group of 5th grade students displayed improved 
+performance in mathematics. However, these results cannot be definitive due to the fact that positive engagement with 
+robots involved students with prior superior background in mathematics.
+% Quick summary of the topics covered in mathematics and physics.
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+\multicolumn{1}{|c|}{Mathematics}                                                                                        
+                                                                                                                         
+                                                                                                                         
+                                                                                & \multicolumn{1}{c|}{Physics}           
+                                                                                                                         
+                                                                                           \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Geometric primitives \cite{papert1980mindstorms, walker2012user}\\ 
+Counting \cite{sullivan2013wheels}\\ Multiplication \cite{wei2011joyful}\\ Decimals \cite{portsmore2004bringing}\\ 
+Fractions and ratio \cite{norton2004using, barker2007robotics, nugent2010impact}\\ Coordinate system 
+\cite{nugent2010impact, walker2012user}\\ Recognition of quantities \cite{iturrizaga2000study}\\ Problem with operators 
+\cite{iturrizaga2000study}\\ Graph construction and \\ interpretation \cite{mitnik2008autonomous, alimisisrobotics}\\ 
+Angles \cite{mitnik2008autonomous, utgaard2014investigating}\end{tabular}} & 
+\multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Distance, time velocity \cite{mitnik2008autonomous, 
+mikropoulos2013educational}\\ Constant speed, acceleration \\and deceleration\cite{alimisisrobotics}\\ Work and energy 
+\cite{saygin2012design}\\ Force, gravity, and friction \cite{williams2007acquisition} \\ Doppler effect 
+\cite{ashdown2012robotics} \\ Fundamentals of electricity \cite{tims2011work} \\ Weight Scale and Moment \\ Computation 
+\cite{Thymioweb} \end{tabular}} \\ \hline
+                                                                                                                         
+                                                                                                                         
+                                                                                                                         
+                                                                                &                                        
+                                                                                                                         
+                                                                                          
+\end{tabular}
+\caption{Quick summary of the topics covered in educational robotics featuring mathematics and physics.}
+\label{compactEDU}
+\end{table}
+Existing literature highlights a wide variety of activities which are targeted towards the fundamental concepts of 
+classical physics. Teachers have reported that such activities have improved motivation and attitude towards the subject 
+\cite{robinson2005robotics}. The topic of kinematics: the relationship between distance, time and velocity was 
+collaboratively studied and discussed while constructing, programming and studying the motion data of LEGO-based robot 
+by middle school students \cite{mitnik2008autonomous, mitnik2009collaborative, mikropoulos2013educational}. Kinetics 
+related activities targeting Newton's law of motion reported that robots can significantly help students in enhancing 
+content knowledge through the active manipulation of important performance variables, like, forces, friction, gravity, 
+weight, slope of the road or ramp, wheel diameter etc \cite{williams2007acquisition}. Similar construction activities: 
+solar powered car, rubber band-based catapult, and wind-turbine have showed the capacity of robots in teaching standard 
+forms of energy and energy conversion techniques \cite{saygin2012design}. Studies developed for learning ratios while 
+constructing robots with cogs and pulleys required theoretical understanding and practical sense of kinematics, gear 
+ratios, and pulley mechanism; the research findings were promising: students displayed improvements in their written 
+ability to explain science and mathematics \cite{norton2004using}. One of the most fundamental element of mathematics 
+and physics is graph construction and interpretation; studies have showed that student develop better sense in these 
+topics by using robots \cite{mitnik2008autonomous}. Follow up studies displayed remarkable results strongly supporting 
+the usage of robots compared to simulators \cite{mitnik2009collaborative}. Related studies have showed that students 
+can better represent and interpret position-time graphs relating to constant speed, acceleration and deceleration 
+\cite{alimisisrobotics}. Please refer to Table \ref{compactEDU} for a summary of the discussed activities. In 
+general, the robot construction process demonstrated engagement, creative thinking and practical learning of the 
+concept \cite{ashdown2012robotics}.
+\section{Educational Robotic Platforms: A Survey}
+This section reports robots developed for education and summarize the design specification in terms 
+of processor, sensors, battery life and cost. Based on the design and construction complexity these robots can be 
+classified as: (1) complex LEGO-like assembly kit, (2) minimal mobile robot design kit, (3) robotic manipulators 
+design kit, (4) mobile robot designed from commercially off the shelf (COTS) components, (5) pre-assembled desktop 
+robots and (6) miniaturized swarm robots.
+
+The robot design kit used in most of the aforementioned educational activities was primarily the LEGO$\circledR$ 
+Mindstorms$\circledR$ NXT 2.0. The kit consists of LEGO bricks, motors, gears, sensors (ultrasonic, sound, touch, and 
+color) which can be programmed using the NXT multipurpose controller to design multiple custom shaped robots. The get 
+started documentation provides instruction for constructing four unique robots which includes humanoids, wheeled, 
+manipulator-like robots or both \cite{LEGONXT}. Several LEGO-like platform is available commercially: VEX robotics is 
+quite famous in the US, meanwhile fischertechnik is well known as well. Table \ref{LEGO-like} summaries some of the 
+existing commercial LEGO-like robotic kits; the list includes the latest LEGO$\circledR$ Mindstorms$\circledR$ EV3 
+\cite{LEGOEV3}. Despite the wide usage of LEGO-like kits in STEM education, the required formal involvement in the 
+classroom environment is largely missing. Most activities are short-termed and developed informally through 
+extra-curricular activities \cite{mubin2013review}. The reason is primarily associated to the time consuming unintuitive 
+overwhelming design process which requires excellent inventory and project management skills. As a direct consequence 
+teachers control over the classroom is reduced, which worsens due to the absence of formal structured curricula linking 
+the traditional education to robot based education. Thus minimizing the role of the teacher as facilitator, educator, 
+or guide. Most importantly, given the constrained budget in primary and secondary school the kits are not always 
+feasible. 
+% Complex LEGO-like robot assembly kit
+\begin{table}[h]
+\centering
+\begin{tabular}{
+>{\columncolor[HTML]{FFFFFF}}l 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c }
+\hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Name}}                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Mindstorms$\circledR$ \\ 
+EV3 \cite{LEGOEV3}\end{tabular}}}                           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}VEX IQ\\ Super 
+Kit \cite{VEXIQ} \end{tabular}}}                                                    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}ROBOTIX TXT \\ Discovery 
+Kit \cite{fischertechnik} \end{tabular}}}                                    \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Company}}                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}LEGO$\circledR$}                                                            
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Vex Robotics}                                 
+ 
+                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Fischertechnik}                                                             
+ 
+                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Processor}}                                                     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}ARM 926EJ-S\\ 4 I/O\end{tabular}}                
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Arm Cortex-M4\\ 12 
+I/O\end{tabular}}                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}ARM Cortex \\ A8 + M3\end{tabular}}              
+ 
+                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Programming}}                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}EV3 Software}                                                               
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}ROBOTC, \\ 
+Modkit\end{tabular}}                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}RoboPro\\ C/C++\end{tabular}}                    
+ 
+                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}l@{}}Visual \\ Programming\end{tabular}}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                        
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                          
+ 
+                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                        
+ 
+                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Sensors}}                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Speaker\\ Touch\\ Color\\ Distance\\ Bump\\ 3 
+Motors\\ encoders\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Speaker\\ 
+Touch\\ Color\\ Distance\\ Bump\\ 4 Motors\\ Joystick\\ Gyro\\ Radio\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Speaker\\ Touch\\ Color\\ 2 LEDs\\ Camera\\ 
+Switch\\ 2 Motors\\ encoders\end{tabular}} \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Design Demo}}                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                                                                          
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1}                                            
+ 
+                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}14}                                                                         
+ 
+                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Connection}}                                                    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Bluetooth + USB \\ + Radio\end{tabular}}         
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB + Blue-tooth}                             
+ 
+                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Blue-tooth/Wifi+\\ Radio+USB\end{tabular}}       
+ 
+                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Add-ons}}                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}EV3 Gyro \\ (add: \$30)\end{tabular}}            
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Omni-\\ 
+directional 
+\\ wheels, \\ Tank Chain \\ Tread \\ (add: \$100.00)\end{tabular}}       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Power Set \\ RoboPro \\ (add: 
+\$115)\end{tabular}}                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Cost}}                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$350.00}                                                                   
+ 
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$330-360}                                    
+ 
+                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$550.00}                                                                   
+ 
+                                     \\ \hline
+\textbf{}                                                                                                            & 
+\multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                                                            
+ 
+                            & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                              
+ 
+                                                                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}} 
+ 
+                                                                                                               
+\end{tabular}
+\caption{Complex LEGO-like robot assembly kit.}
+\label{LEGO-like}
+\end{table}
+To get around the issue of complex construction process, there exists commercial modular robotic kits which provide 
+minimal design space compared to LEGO-like kits, thereby minimizing the time required for assembly. Table 
+\ref{min-robots} and \ref{my-labelarm} provide a compact overview of these commercial minimal design kits; in particular 
+we focus on wheeled and armed platform. The reasonable cost and the limited design space provide a convenient platform 
+for classroom, it provides: (1) students with construction satisfaction while shortening the assembly time, and (2) 
+teachers have enough time to think and develop curricula centric activities. Such combination provides space for 
+improved student-teacher collaboration. Table \ref{off-theshelf}, in contrast, lists a special class of robots which are 
+designed using COTS components. The design process is quite involved, requires soldering, wiring, PCB design and 
+programming. Traditionally, the design is limited to building and programming a line following differential drive robot 
+with a unique set of sensors. Under proper guidance, the activity could allow students to develop practical knowledge of 
+electricity, magnetism, sensors, and mechanics. Most importantly, the price is quite reasonable and design space is 
+expandable.
+% Minimal mobile robot design kit
+\begin{table*}[!htbp]
+\centering
+\begin{tabular}{
+>{\columncolor[HTML]{FFFFFF}}l 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c }
+\hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Name}}           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Mark III} \cite{junun}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Polulo 3-Pi} \cite{P3pi}}                                            
+ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Pololu Zumo\\ 32U4 
+Robot \cite{p1S} \end{tabular}}}  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Arduino\\ Starter Kit 
+\cite{Arduino}\end{tabular}}}                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Boe-bot} \cite{Boe-Bot}}                                             
+         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Qfix} \cite{qfix}}                                        
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{ARobot} \cite{arrickrobotics}}         
+                                                                      \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Processor}}      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}PICF877}           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ATmega328}  
+                                                      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ATmega32U4}         
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ATmega328}         
+ 
+                                                                                     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Basic Stamp II}                                                        & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ATmega128}                                                                  
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                     
+                         \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Programming}}    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}      
+                                                      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}               
+                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Visual Programming:\\ minibloq,\\ 
+ArduBlock\end{tabular}}                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}PBASIC}                           
+                                     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}C/C++,\\ 
+visually\\ programmable\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                        
+    
+                                                                  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Dimension (cm)}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}    
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 10}                                                
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 10}                                                         
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                    
+                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                      
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                          
+                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                   
+                                                           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Drive System}}   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}tank-style \\differential \end{tabular}}  
+& 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}tank-style \\differential \end{tabular}} 
+& \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                              
+                              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                            
+                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}omni-directional \end{tabular}}        & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}front wheel drive,\\ rear wheel 
+steer\end{tabular}} \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Motor}}          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 
+torque servo}    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 micro-metal\\ 
+gear\end{tabular}}     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 micro-metal\\ 
+gear\end{tabular}}               & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3 DC, servo}                              
+                                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 continued\\ rotation servos\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3 gear motor}                                                                
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}rc servo, DC gear}                                                    
+                         \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Encoders}}       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes} 
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                            
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                  
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                    
+                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                      
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                          
+                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                   
+                                                           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Proximity}}      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}   
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                            
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}                                                                    
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1 ultrasonic}                                                        
+                                    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}3 (ultrasound + IR)\end{tabular}}        & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                                 
+ 
+                                              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                            
+                                                                  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Ground Sensor}}  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}   
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                                                           
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                                                                    
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                    
+                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                      
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1}                                         
+                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                   
+                                                           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Push-botton}}    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}    
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}                                                           
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}                                                                    
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}10}                                                                  
+                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                                     
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                                         
+                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                                  
+                                                           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{LEDs}}           & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}}    
+              & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}}                                                            
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}27}                                                                  
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                      
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                                         
+                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                                  
+                                                           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Sound}}          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}    
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}buzzer}                                                      
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}buzzer}                                                               
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                    
+                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                      
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                          
+                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}buzzer}                             
+                                                           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{LCD}}            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}    
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}82 character}                                                
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}82 character}                                                         
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                    
+                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                      
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                          
+                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                   
+                                                           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Connection}}     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Serial}            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}          
+ 
+                                                      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB}                 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB}                
+                                                                                     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB, Serial}                                                           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB}                                                                         
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                     
+                         \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Other}}          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}    
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                            
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}gyro, compass, \\ 
+accelerometer\end{tabular}}    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}tilt, 6 lights, 
+and\\ temperature sensor, \\ 1 IMU with altitude\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Light sensor\\ 2 bumpers\end{tabular}}      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                            
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 whiskers, PIR\\ motion, light, \\ 
+temperature\end{tabular}}       \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Cost}}           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$92.00}           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$100.00}   
+                                                      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$100.00}            
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$156.00}           
+                                                                                     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$160.00}                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$310.00}                                                                    
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$395.00}                                                             
+                         \\ \hline
+\textbf{}                                                             & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}     
+              & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                                             
+     & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                                                      
+      &                                                                                                                  
+                                    &                                                                                    
+                                &                                                                                        
+                                       &                                                                                 
+                                                          
+\end{tabular}
+\caption{Commercial low cost minimal mobile robot design kit.}
+\label{min-robots}
+\end{table*}
+% Robot manipulators design kit
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Name}}                                                             
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Servobotics \\ 
+RA-02 \cite{ra-02}\end{tabular}}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Lynx\\ 
+AL5x \cite{lynx} \end{tabular}}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Robotic Arm\\ 
+Edge \cite{edge} \end{tabular}}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Arxx Robot\\ Mini \cite{arexx} 
+\end{tabular}}} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}l@{}}Degrees of \\ Freedom\end{tabular}}} 
+& \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                                                   
+ 
+                     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                                                   
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                                                           
+ 
+       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}6}                                                                 
+ 
+    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Motor}}                                                            
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}servos}                                                              
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}servos}                                                            & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}servos}                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}servos}                                                                 \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Payload (gr.)}}                                                    
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}very small}                                                          
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}100-283}                                                           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}100}                                                                 & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                       \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Height (cm)}}                                                      
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}40}                                                                  
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}40}                                                                & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}38}                                                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}32}                                                                     \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Reach (cm)}}                                                       
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}31}                                                                  
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}15-20}                                                             & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}30}                                                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}26}                                                                     \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Programmable}}                                                     
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                 
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}yes\end{tabular}}       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                 & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                                                                  \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Connection}}                                                       
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Serial}                                                              
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB}                                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB}                                                                 & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB}                                                                    \\ 
+\hline
+\multicolumn{1}{|l|}{\textbf{Other}}                                                                                    
+ 
+     & \multicolumn{1}{c|}{}                                                                                            
+ 
+     & \multicolumn{1}{c|}{}                                                                                          & 
+\multicolumn{1}{c|}{}                                                                                            & 
+\multicolumn{1}{c|}{4 LEDs}                                                                                         \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Cost}}                                                             
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$250.00}                                                            
+ 
+     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$330-360}                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$66.00}                                                             & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$150.00}                                                               \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\textbf{}                                                                                                               
+ 
+     & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                                                     
+ 
+     & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                                                   & 
+\multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                                                     & 
+\multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                                                                       
+\end{tabular}
+\caption{Commercialized low cost programmable robot manipulator kit.}
+\label{my-labelarm}
+\end{table}
+% Low cost mobile platforms designed from commercial off-the-shelf components
+\begin{table*}[!htbp]
+\centering
+\begin{tabular}{
+>{\columncolor[HTML]{FFFFFF}}l 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c }
+\hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Name}}           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{MIT SEG} \cite{mit-seg}}                                           
+& 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Harvard\\ Kilobot 
+\cite{rubenstein2012kilobot} \end{tabular}}}          
+          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Rice\\ R-one 
+\cite{mclurkin2013low} \end{tabular}}}   
+                                                                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Infante} \cite{saleiro2013low}}                                     
+ 
+                      
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Miniskybot \\ 
+1.0 \cite{gonzalez2012new}\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Pi Swarm} 
+\cite{hilder2014pi}}                                      
+                                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Evolution ER1} \cite{EvolutionER1}}                             
+     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Battery Life (hours)}} & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3-24}              
+ 
+                                                                   & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}     
+ 
+                                                                                                                        
+ 
+                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                               
+ 
+                                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                      
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                        \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Processor}}      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Arduino Pro\\ Mini\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Atmega328}                                                                  
+ 
+          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}LM3S8962 \\ Stellaris 
+Processor\end{tabular}}                                                                                                 
+ 
+ & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}PIC16F88}                                                                
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}PIC16F876A}                                               
+ 
+         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ARM Cortex-M3}                                                   
+ 
+                                                     & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Laptop}              
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Programming}}    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ArduBlock}                                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                                                                      
+ 
+          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}C/C++\\ Python\end{tabular}}         
+ 
+                                                                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Blocky\\ Graphical\\ Programming\end{tabular}}   
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                                                       
+ 
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                                                              
+ 
+                                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}C/C++,\\ Python\end{tabular}} \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Dimension (cm)}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 3}       
+ 
+                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 11}                                                               
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                           
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                            
+ 
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 9.5}                                                      
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                       
+ 
+                                \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Drive System}}   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}differential\end{tabular}}      
+ 
+          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                   
+ 
+                                                                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                               
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                
+ 
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                       
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                       
+ 
+                                \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Motor}}          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 
+servos}                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 vibrator\end{tabular}}                
+ 
+          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 geared}                                                       
+ 
+                                                                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 rc servos}                                                                
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 servos}                                                    
+ 
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 micro-metal gear\end{tabular}}       
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 stepper}              
+ 
+                                \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Encoders}}       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  
+ 
+                                                                   & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}   
+ 
+                                                                                                                        
+ 
+                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                               
+ 
+                                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                       
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                     \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Proximity}}      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}               
+ 
+                                                                   & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8}     
+ 
+                                                                                                                        
+ 
+                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                               
+ 
+                                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 ultrasound}    
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8}                      
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}                                                       \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Ground Sensor}}  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1}  
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  
+ 
+                                                                   & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}      
+ 
+                                                                                                                        
+ 
+                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}                              
+ 
+                                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                      
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                        \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Push-botton}}    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  
+ 
+                                                                   & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}     
+ 
+                                                                                                                        
+ 
+                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                               
+ 
+                                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}                      
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                        \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{LEDs}}           & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}}                  
+ 
+                                                                   & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}15}    
+ 
+                                                                                                                        
+ 
+                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                               
+ 
+                                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}11}                     
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                        \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Sound}}          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  
+ 
+                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}speaker}                                                                    
+ 
+                                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                           
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                            
+ 
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}buzzer}                                                             
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                       
+ 
+                                \\ \hline
+% \multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{LCD}}            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}   
+%  
+%                                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  
+%  
+%                                                                    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}      
+%  
+%                                                                                                                         
+%  
+%                                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                               
+%  
+%                                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                
+%  
+%                                                   & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                       
+%  
+%                                                                                               & 
+% \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                        \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Connection}}     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Blue-tooth}                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}IR based \\ Kilobot \\ controller\end{tabular}}  
+ 
+          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Radio (2.4 Ghz)}                                                
+ 
+                                                                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Bluetooth}                                                                  
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Serial}                                                      
+ 
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}USB, RF\\ transceiver\end{tabular}}      
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Serial}                 
+ 
+                                \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Other}}          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}   
+ 
+                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}ambient light,\\ inter-robot \\ 
+communication\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}8 bumpers, 
+4 ambient\\ light, IR beacon global\\ localization, gyro, compass, \\accelerometer, SC card, \\
+planner gripper\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Raspberry-Pi\\ 
+based\\ 
+multi-robot \\ controller\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                 
+ 
+                                 & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}3D gyro, 
+compass,\\ accelerometer,\\ temperature,\\ light, ultrasonic\\ range\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}camera}                                                  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Cost}}           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$20.27}                                                    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$43.00}                                                                    
+ 
+          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$300.00}                                                       
+ 
+                                                                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}\$110.00\\ (5 robots)\end{tabular}}              
+ 
+             & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$65.00}                                                     
+ 
+      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$245.00}                                                           
+ 
+                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$900}                  
+ 
+                                \\ \hline
+\textbf{}                                                             & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}    
+ 
+                                                       & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   
+ 
+                                                                   &                                                    
+ 
+                                                                                                                        
+ 
+                                          &                                                                             
+ 
+                                                         &                                                              
+ 
+                                                  &                                                                     
+ 
+                                                                                              &                         
+ 
+                                                                           
+\end{tabular}
+\caption{Low cost mobile platforms designed from commercial off-the-shelf components.}
+\label{off-theshelf}
+\end{table*}
+Robotics community at universities and companies have joined in the development process. K-team - the Swiss robotic 
+company \cite{k-team} over the years have developed a series of differential drive modular robots for academia and 
+education. The latest Khepera 4 (Cost: \$2800, Diameter: 14 cm, and Weight: 540g) is quite capable; it has a linux based 
+operating system with a huge array of sensors: 8-IR proximity and ambient light sensor, 4-IR ground proximity sensors, 
+5-ultrasonic sonar sensors, 3-axis accelerometer, 3-axis gyroscope, microphones, speaker, integrated RGB camera, 3 
+programmable RGB LEDs and provides autonomy of approximate 5 hours. Table \ref{Hemission} lists the three educational 
+platforms; compared to the Khepera these full-assembled desktop sized robots have minimal sensing capabilities and 
+costs significantly less. All the K-team robots can be upgraded through the additional of specialized dedicated modules: 
+laser range finder for mapping and localization, 2D arm for lifting and gripping, and the stargazer global positioning 
+system for global positioning and bearing. Some of the advanced robots in these category are listed in Table 
+\ref{assembled}; these robots are compact in size and can be installed indoor to work alongside desktop computers. Most 
+of these robots are developed at universities for teaching engineering courses and later have been commercialized; for 
+example: the E-puck \cite{mondada2009puck} has been successfully adopted at EPFL. The final class of indoor robots are 
+the miniaturized simpler version of these aforementioned platforms. Individually, these robots have minimal sensing 
+capabilities, however as a group these robots are extremely capable. Their hardware design is usually open-source, and 
+the required COTS-based components are easily obtainable; Table \ref{swarm} lists some of these robots. Although these 
+robots are particularly designed for swarm related research; but, their size and the production cost make them ideal 
+for K-12 standard education where each student would have his/her own robot and will collaborate with peers and teachers 
+through the learning activities. 
+
+% K-team - the Swiss robotic company
+\begin{table}[t]
+\centering
+\begin{tabular}{cccc}
+\hline
+\multicolumn{1}{|c|}{}                                                                                  & 
+\multicolumn{1}{c|}{Hemission \cite{k-team}}       & \multicolumn{1}{c|}{K-Junior V1 \cite{k-team}} & 
+\multicolumn{1}{c|}{K-Junior V2 \cite{k-team}} \\ \hline
+\multicolumn{1}{|c|}{Visual Programming}                                                                & 
+\multicolumn{1}{c|}{yes}             & \multicolumn{1}{c|}{yes}         & \multicolumn{1}{c|}{yes}         \\ \hline
+\multicolumn{1}{|c|}{Processor}                                                                         & 
+\multicolumn{1}{c|}{PIC16F877}       & \multicolumn{1}{c|}{same}        & \multicolumn{1}{c|}{PIC18F66K22} \\ \hline
+\multicolumn{1}{|c|}{DC Motor}                                                                          & 
+\multicolumn{1}{c|}{2 (no encoders)} & \multicolumn{1}{c|}{same}        & \multicolumn{1}{c|}{same}        \\ \hline
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}IR proximity and \\ ambient light sensors\end{tabular}} & 
+\multicolumn{1}{c|}{8}               & \multicolumn{1}{c|}{6}           & \multicolumn{1}{c|}{6}           \\ \hline
+\multicolumn{1}{|c|}{Obstacle detectors}                                                                & 
+\multicolumn{1}{c|}{6}               & \multicolumn{1}{c|}{no}          & \multicolumn{1}{c|}{}            \\ \hline
+\multicolumn{1}{|c|}{IR ground sensor}                                                                  & 
+\multicolumn{1}{c|}{2}               & \multicolumn{1}{c|}{4}           & \multicolumn{1}{c|}{4}           \\ \hline
+\multicolumn{1}{|c|}{Programmable LEDs}                                                                 & 
+\multicolumn{1}{c|}{4}               & \multicolumn{1}{c|}{3}           & \multicolumn{1}{c|}{5}           \\ \hline
+\multicolumn{1}{|c|}{Switches}                                                                          & 
+\multicolumn{1}{c|}{4}               & \multicolumn{1}{c|}{3}           & \multicolumn{1}{c|}{3}           \\ \hline
+\multicolumn{1}{|c|}{Size in diameter}                                                                  & 
+\multicolumn{1}{c|}{12  cm}          & \multicolumn{1}{c|}{12.5 cm}     & \multicolumn{1}{c|}{12.5 cm}     \\ \hline
+\multicolumn{1}{|c|}{Buzzer}                                                                            & 
+\multicolumn{1}{c|}{yes}             & \multicolumn{1}{c|}{20Hz - 2kHz} & \multicolumn{1}{c|}{20Hz - 2kHz} \\ \hline
+\multicolumn{1}{|c|}{Battery Life}                                                                    & 
+\multicolumn{1}{c|}{2}               & \multicolumn{1}{c|}{4}           & \multicolumn{1}{c|}{4}           \\ \hline
+\multicolumn{1}{|c|}{Cost (in \$)}                                                                      & 
+\multicolumn{1}{c|}{250}             & \multicolumn{1}{c|}{900}         & \multicolumn{1}{c|}{800}         \\ \hline
+\multicolumn{1}{l}{}                                                                                    & 
+\multicolumn{1}{l}{}                 & \multicolumn{1}{l}{}             & \multicolumn{1}{l}{}            
+\end{tabular}
+\caption{Educational robots from the K-team.}
+\label{Hemission}
+\end{table}
+% Low-cost fully-assembled commercial mobile robots.
+\begin{table*}[!htbp]
+\centering
+\begin{tabular}{
+>{\columncolor[HTML]{FFFFFF}}l 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c }
+\hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Name}}           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Thymio} \cite{riedo2013thymio}}                                     
+ 
+                       
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}iRobot\\ 
+Create \cite{create} \end{tabular}}}                            & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Wow-Wee\\ Rovio \cite{rovio} 
+\end{tabular}}}            
+                              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}c@{}}Surveyor 
+\\ SRV-1 \cite{cummins2008using}\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{E-puck} 
+\cite{mondada2009puck}}                                   
+                                                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{AmigoBot} \cite{amigo}} \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Battery Hours}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}  
+ 
+                                                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1.5}                                                                        
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                                                        
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}                        
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}                               
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Processor}}      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}PIC24FJ128}                                                                 
+ 
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                           
+ 
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Marvell\\ 
+PXA270M ARM\end{tabular}}                                             & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Blackfin  \\ BF537\end{tabular}}         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}dsPIC}                                                                      
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Hitachi H8}        \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Programming}}    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}ASEBA, Visual\\ Programming\end{tabular}}        
+ 
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                                                      
+ 
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}C/C++\\ 
+Python\end{tabular}}                                                    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}C/C++\\ Python\end{tabular}}             & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                                                                      
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}             \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Dimension (cm)}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}10 x 10} 
+ 
+                                                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 13}                                                               
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 11}                                             
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}12 x 10.5}                
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 7}                     
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}32 x 28}           \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Drive System}}   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                               
+ 
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                               
+ 
+                                & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}} omni-direction\end{tabular}}                     
+                    & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}differential\\ tank-style\end{tabular}}  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                               
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}      \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Motor}}          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 
+DC gear}                                                                                 & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 vibrator \end{tabular}}                
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 wheel, 1 camera}                                        
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4 DC gear}                
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 
+stepper\\ geared\end{tabular}}                                                          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 DC}              \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Encoders}}       & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}not 
+directly}                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                        
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                      
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                         
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                             
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}               \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Proximity}}      & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7}  
+ 
+                                                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1}                                                                          
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                      
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}                        
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8}                               
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8 ultrasound}      \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Ground Sensor}}  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2}  
+ 
+                                                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4 cliff sensors}                                                            
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                         
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}                        
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Push-botton}}    & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5 
+touch sensors}                                                                           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                           
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}                                                        
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                         
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{LEDs}}           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}39} 
+ 
+                                                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3}                                                                          
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                      
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                         
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}10}                              
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Sound}}          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}speaker, \\ microphone\end{tabular}}             
+ 
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}speaker}                                                    
+ 
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}speaker, \\ 
+microphone\end{tabular}}                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}     
+ 
+                                                             & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}speaker, 3 omni-\\ directional 
+microphones\end{tabular}}                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}buzzer}        
+ 
+   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Connection}}     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}USB} 
+                                                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Serial}                                                                     
+ 
+                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Wireless}                                                 
+ 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Wi-Fi}                    
+ 
+                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Bluetooth, Serial}               
+ 
+                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Serial, Wireless}  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Other}}          & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}IR communication,\\ 3D accelerometer,\\ 
+temperature\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}3 bumper,\\ IR 
+communication,\\ attachable camera\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}VGA camera,\\ indoor localization\\ using True 
+Beacon\\ NorthStar\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}1.3 MP\\ 
+Camera\end{tabular}}            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}IR 
+communication\\ VGA camera\\ \\ 3D accelerometer,\\ ambient light sensors\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                  \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Cost}}           & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$105.00}                                                                   
+ 
+              & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$200.00}                                                   
+ 
+                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$270.00}                                 
+ 
+                                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$480.00} 
+ 
+                                                         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$850.00}        
+ 
+                                                                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$1800.00}         \\ \hline
+\textbf{}                                                             &                                                 
+ 
+                                                                                      &                                 
+ 
+                                                                                                        &               
+ 
+                                                                                                                        
+ 
+               &                                                                                                        
+ 
+        &                                                                                                               
+ 
+                                                  &                                                               
+\end{tabular}
+\caption{Low-cost fully-assembled commercial mobile robots.}
+\label{assembled}
+\end{table*}
+% Miniaturized Swarm Robots.
+\begin{table*}[!htbp]
+\centering
+\begin{tabular}{
+>{\columncolor[HTML]{FFFFFF}}l 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c }
+\hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Name}}                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{CotsBots} \cite{bergbreiter2003cotsbots}}                           
+ 
+                                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Robomote} \cite{sibley2002robomote}}                                
+ 
+           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Alice} \cite{caprari2001fascination}}                  
+ 
+                                                          & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{TERMES} 
+\cite{petersen2011termes}}                                                                                              
+ 
+         & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{MICAbot}\cite{mcmickell2003micabot}}                     
+ 
+                                                                              & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\textbf{Kobot} \cite{turgut2007kobot}}                                      
+ 
+                \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Battery Life}}                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}1}                                                                          
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3.5}                              
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}10}                                            
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                             
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2.5}                                                                        
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}7-10}                             
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Processor}}                                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ATmega128L}                                                                 
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}AT90S8535L}                       
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}PIC16F84}                                      
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ATmega128L}                   
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}ATmega103L}                                                                 
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}PIC16F877A}                       
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Size (in cm)}}                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}13 x 6.5}                                                                   
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}3.81 x 2.23}                      
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2.1 x 2.1}                                     
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}17 x 11}                      
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8.6 x 6.1}                                                                  
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}diameter: 12}                     
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Motor}}                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 servos}                                                                   
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 DC}                             
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 swatch, 1 DC}                                
+ 
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 micro-metal gear}           
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}2 sub-micro servo}                                                          
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2 high 
+torque\\ DC gear-head\end{tabular}} \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Drive System}}                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}4 wheel\\ Ackermann\end{tabular}}                
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                     
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}differential\\ 
+all-terrrain\\ caterpillar thread\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}4 carved wheg\\ differential\end{tabular}}    
+ 
+                                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                  
+ 
+                                                                                     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}differential}                                                         \\ 
+\hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Encoders}}                                                   & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}no}                                                                         
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                              
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}no}                                            
+  
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}no}                           
+  
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                        
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}no}                               
+  
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Proximity}}                                                  & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                           
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}5}                                
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}                                             
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                             
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                           
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}8}                                
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Bumper}}                                                     & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}                                                                          
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}4}                                
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                              
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                             
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                                                           
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                 
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{\begin{tabular}[c]{@{}l@{}}Inter-robot\\ comm\end{tabular}}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                        
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                              
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                           
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                             
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}yes}                                                                        
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                 
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Programming}}                                                & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}TinyOS}                                                                     
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                            
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                                         
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}C/C++}                        
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}TinyOS}                                                                     
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                 
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Sound}}                                                      & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}microphone, \\ buzzer\end{tabular}}              
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                 
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                              
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                             
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}microphone}                                                                 
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                 
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Connectivity}}                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}RF Transceiver}                                                             
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}RF Transceiver}                   
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}IR, Radio}                                     
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Blue-tooth}                   
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}RF transceiver}                                                             
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}wireless}                         
+ 
+                                   \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Other Specs.}}                                               & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2D compass,\\ accelerometer,\\ radio based\\ 
+distance, light,\\ temperature\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}solar-cell\\ compass\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}linear camera\\ 2D gripper\end{tabular}}         
+ 
+               & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}6 ground sensors,\\ tilt 
+sensors,\\ 2 DOF tactile\\ claw-like gripper\\ 3 LEDs\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2D compass,\\ accelerometer,\\ radio based\\ 
+distance, light,\\ temperature\end{tabular}} & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}camera\\ compass\end{tabular}}             \\ 
+\hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\textbf{Cost}}                                                       & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$200.00}                                                                   
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$150.00}                         
+ 
+                           & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$50.00}                                       
+ 
+                                            & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$100.00}                     
+ 
+                                                                                         & 
+\multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}\$350.00}                                                                   
+ 
+                                        & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}}                                 
+ 
+                                   \\ \hline
+\textbf{}                                                                                                         &     
+ 
+                                                                                                                        
+ 
+                                   &                                                                                    
+ 
+                      &                                                                                                 
+ 
+                                       &                                                                                
+ 
+                                                                                    &                                   
+ 
+                                                                                                                        
+ 
+     &                                                                                                                  
+\end{tabular}
+\caption{Miniaturized Swarm Robots.}
+\label{swarm}
+\end{table*}
+A few noteworthy design for academic research and education include the Harvard Kilobot \cite{rubenstein2012kilobot}, 
+the Infante \cite{Saleiro2013} and the EPFL Thymio. The PCB-chassis-based Harvard Kilobot robot stands on rigid legs, 
+locomotes in a differential drive mechanism using vibration motors, communicates and estimates range between robots 
+using IR sensors, senses ambient light, has an autonomous drive time of 3 to 24 hours between recharges and provides an 
+API to program the robot in C for educational purpose. The advanced operational scalability involving collective 
+programming, power recharge and control makes the design ideally suited for classroom. In terms of collaborative 
+learning the Infante robot displayed promising results; studies have reported successful implementation of activities 
+pertaining to mathematical reasoning, geography and recycling \cite{Saleiro2013}. The EPFL Thymio \cite{riedo2013thymio} 
+is one of the most successful commercial full-assembled robot; the platform is re-programmable, rich in sensors and 
+actuators, rechargeable, supports Lego modularity and appreciated by students. Theoretically, most of the aforestated
+robots could have replaced the LEGO platform for any of the learning activities mentioned in section I, in fact, some 
+might even outperform the LEGO. 
+
+One limitation of education robot is the visualization of motion related robot parameters; a potential solution can be 
+to virtually display these parameters on tablets, or cell-phones using augmented reality (AR); AR can provide 
+pedagogical advantage as well. This additional device would provide enhanced computational power, and can be utilized to 
+perform vision based localization which is one of the problem with indoor mobile robots.
+\section{Augmented Reality in Education}Augmented reality (AR) is an interactive visualization technique combining the 
+real and the virtual world through accurate 3D vision-based registration. A quick literature survey suggests that the 
+system is pedagogically effective; it can increase student motivation and improve learning. In terms of hardware 
+development, these systems are quite stable and have been widely used for various applications featuring military 
+training, medical visualization, games, films and media industry. Despite the 40 years of research and development, the 
+application of such system in education is still at its infancy. Table \ref{my-table} compactly presents augmented 
+reality based educational activities featuring mathematics and physics.
+% Activities of augmented reality based educational featuring mathematics and physics.
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}Mathematics}                                                               
+ 
+                                                               & \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}Physics}   
+ 
+                                                                                                                 \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}Construct3D: Geometry \cite{kaufmann2002construct3d}}                     
+                                                               & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}Physics Playground: Kinetics \\ and kinematics 
+in 3D \cite{kaufmann2008simulating}\end{tabular}} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}CyberChase Shape Quest: Geometry, \\ spatial 
+reasoning and problem \\ solving \cite{CyberChase}\end{tabular}} & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}Newton World: Kinetics and \\ kinematics in 1D 
+\cite{dede1996sciencespace}\end{tabular}}        \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}CyberMath: Differential \\ geometry 
+\cite{taxen2001cybermath}\end{tabular}}                                   & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}Maxwell World: Fundamentals \\ of 
+electromagnetism \cite{dede1996sciencespace}\end{tabular}}    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}Alien Contact! Basic mathematics, \\ and 
+problem solving \cite{dunleavy2009affordances}\end{tabular}}         & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}Physics Playground: Graph \\ interpretation 
+\cite{kaufmann2008simulating}\end{tabular}}         \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}}                                                                          
+                                                                & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}Elastic 
+collisions \cite{li2011influences, lin2013investigation}}                                                          \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}}                                                                          
+                                                                & \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}Doppler 
+effect \cite{larsen2011evaluation}}                                                                                \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}}                                                                          
+                                                                & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}Principles of aircraft flight \cite{larsen2011evaluation}}                   
+                                                  \\ 
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}}                                                                          
+                                                                & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}Fundamentals of circuits and\\ electromagnetism 
+\cite{ibanez2014experimenting}\end{tabular}}    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}}                                                                          
+                                                                & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}ARex: Light experiment \\ with prism 
+\cite{matcha2011preliminary}\end{tabular}}                 \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}}                                                                          
+                                                                & 
+\multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}Fundamentals of lens \cite{cai2013using}}                                  
+                                                \\ \hline
+                                                                                                                        
+                                                                &                                                       
+ 
+                                                                                                                 
+\end{tabular}
+\caption{Activities of augmented reality based educational featuring mathematics and physics.}
+\label{my-table}
+\end{table}
+\section{Discussion and Conclusion}
+Based on the literature review, we can summarize that the trend of educational robots have moved from conventional 
+robot design and programming to non-technical learning activities -- a positive development. In addition, activities 
+using augmented reality have opened up the opportunity to visualize the invisible. Moreover, the cost of cell-phones, 
+tablets, computers, robots have become reasonable; and their social acceptance has improved. Furthermore, the design of 
+robots have simplified, thus reducing the time for assembly. Most importantly, programming have become easier and more 
+intuitive with the introduction of augmented reality and visual drag and drop graphical schemes. However, the survey 
+reveals two important issues which requires immediate attention: (1) the evaluation of learning techniques: the 
+statistical analyses and the interviews are not standardized, and (2) technology based pedagogical curricula is not 
+properly defined.
+
+Majority of the studies advocate that technology: robots or augmented reality plays a positive role in the learning 
+of educational activities; however strictly speaking, the validity of these studies are questionable. Most of the 
+statistical evaluation process is usually either quantitative or qualitative; rarely the two are combined which would 
+be the ideal. In addition, the analyses are not performed properly: random sampling is rarely used, and to worsen, the 
+sample size is not enough to generate sufficient power for educational research. Moreover, the learning activity of the 
+experimental and the control group needs to be carefully defined to be comparable. Furthermore, the quantification of 
+learning must be properly standardized based on multiple pretest, post-test and retention test; the present standard of 
+one pre-test and one post-test with substandard questions should be modified to test for outliers. Most importantly, 
+robot-teacher interaction is pivotal; the robot based activities should be appropriately linked with traditional 
+curricular so robots could assist the teachers in day-to-day teaching activities. Because in some studies the students 
+does not perceive or cannot link the learning of the activities to the robot based activities. Such decoupling voids the 
+link between robotics and subsequent increased motivation to learn; this is bad because the increase in motivation has 
+been the crucial sales pitch in educational robotics.
+
+Technology is not replacing teachers, rather it is utilized to further assist the teacher and the students to create a 
+conducive epistemologically plural learning environment. To reach such milestone (1) the standard curricular needs to 
+be appropriately researched and subsequently adjusted so that it can aptly host the introduction of technology, (2) the 
+teacher needs to be properly trained, and (3) the selection of the technology or technologies should be appropriately 
+researched. For example not all robots can be used for the learning of languages. Furthermore, educational framework 
+should implicitly encourage both individual and collaborative learning. 
+
+Teacher are the most vital organ in the educational framework; thus the teacher needs to be properly trained in the 
+field of technology so that they are comfortable. However, such comfortability can only be achieved 
+through proper training and active/pro-active involvement. Many of the teachers have a hard time dealing with robotics, 
+however, this is not always because they are afraid, or not willing to learn new materials; sometimes a lack of standard 
+curricular can be a factor as well. 
+
+To overcome some of these limitations and at the same time open new perspective, an interesting approach would be to 
+merge swarm modular robot technology with augmented reality robot-affordance (kinetics and kinematics) visualization 
+capacity. In addition, the robots will interact with an environment made out of paper based structures whose behaviors, 
+affordances and capabilities are well defined and predictable in augmented reality. The programming is simplified using 
+AR; and the framework has provision for visual or text based programming. The most unique part is that all the 
+affordances of the robot and the environment will be visible to the user. Thus the framework is ideally suited for 
+teaching physics: mechanics, electronics, magnetism, and sensor-physics. 
+
+The envisioned framework will encourage active interaction between teacher-students and student-student. Moreover, 
+provide the teachers with improved abilities to monitor and assist in the students activities thereby improving control 
+in the classroom. A complete curricular for classical Newtonian Physics featuring interactive inquiry based problems 
+will be proposed; these problems are in-lined with traditional curricula. The problems would require the students to 
+carefully design the environment and program the robot-environment interaction, visualize the outcome in real time 
+AR; validate the results in traditional way using collected data and physics equations and iterate 
+(re-iterate) towards the solution. The problems will be carefully crafted so that students can use multiple ways to 
+solve it: traditional pen-paper, only AR or programming robot, or smart combination of technology and traditional 
+approach. Some of the problems will be for individuals while some would encourage collaboration. A complete 
+teacher training package would be provided so that the teachers can use these system in formal classroom settings.
+\section*{Acknowledgment}
+This study was supported by the National Centre of Competence in Research (NCCR) Robotics, Switzerland and part of the 
+project NCCR Transversal Educational Activity (TEA).
+
+\bibliography{references}
+\end{document}
